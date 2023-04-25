@@ -11,6 +11,7 @@ import vasconcelos.silvio.pirateproject.exception.PirateNotFoundException;
 import vasconcelos.silvio.pirateproject.service.PirateService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/pirates")
@@ -26,11 +27,7 @@ public class PirateController {
     }
 
     @GetMapping("/{pirateName}")
-    public PirateWithBounty getPirateWithBounty(@PathVariable String pirateName) throws PirateNotFoundException {
-        try {
-            return pirateService.getPirateWithBounty(pirateName);
-        } catch (PirateNotFoundException pirateNotFoundException) {
-            return null;
-        }
+    public PirateWithBounty getPirateWithBounty(@PathVariable String pirateName) {
+        return Optional.ofNullable(pirateService.getPirateWithBounty(pirateName)).orElseThrow(() -> new PirateNotFoundException(pirateName));
     }
 }

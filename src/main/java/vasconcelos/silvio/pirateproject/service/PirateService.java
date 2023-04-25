@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import vasconcelos.silvio.pirateproject.data.Pirate;
 import vasconcelos.silvio.pirateproject.dto.PirateWithBounty;
-import vasconcelos.silvio.pirateproject.exception.PirateNotFoundException;
 import vasconcelos.silvio.pirateproject.repository.PirateRepository;
 
 import java.util.List;
@@ -27,8 +26,8 @@ public class PirateService {
         return StreamSupport.stream(allPirates.spliterator(), false).collect(Collectors.toList());
     }
 
-    public PirateWithBounty getPirateWithBounty(String pirateName) throws PirateNotFoundException {
-        return pirateRepository.findById(pirateName).map(this::getPirateWithBounty).orElseThrow(PirateNotFoundException::new);
+    public PirateWithBounty getPirateWithBounty(String pirateName) {
+        return pirateRepository.findById(pirateName).map(this::getPirateWithBounty).orElse(null);
     }
 
     private PirateWithBounty getPirateWithBounty(Pirate pirate) {

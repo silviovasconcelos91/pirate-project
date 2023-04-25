@@ -3,3 +3,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/kaibee
     username: kaibee
     password: kaibee
+server:
+  error:
+    include-stacktrace: never
