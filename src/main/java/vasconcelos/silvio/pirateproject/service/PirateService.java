@@ -1,15 +1,16 @@
 package vasconcelos.silvio.pirateproject.service;
 
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import vasconcelos.silvio.pirateproject.data.Pirate;
+import vasconcelos.silvio.pirateproject.dto.PirateBounty;
 import vasconcelos.silvio.pirateproject.dto.PirateWithBounty;
 import vasconcelos.silvio.pirateproject.repository.PirateRepository;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -31,7 +32,7 @@ public class PirateService {
     }
 
     private PirateWithBounty getPirateWithBounty(Pirate pirate) {
-        ResponseEntity<String> bountyResponse = restTemplate.exchange("http://localhost:8081/api/bounty/{pirateName}", HttpMethod.GET, null, String.class, pirate.getName());
-        return new PirateWithBounty(pirate.getName(), pirate.getCrew(), pirate.isDemonFruit(), bountyResponse.getBody());
+        ResponseEntity<PirateBounty> forEntity = restTemplate.getForEntity("http://localhost:8081/api/bounty/{pirateName}", PirateBounty.class, pirate.getName());
+        return new PirateWithBounty(pirate.getName(), pirate.getCrew(), pirate.isDemonFruit(), Objects.requireNonNull(forEntity.getBody()).getBounty());
     }
 }
