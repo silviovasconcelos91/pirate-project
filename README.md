@@ -13,3 +13,9 @@ Pour pouvoir migrer votre application spring boot 2.x.x vers spring boot 3.x.x l
 ## Jakarta EE 
 
 Spring a décidé de migrer de javax à jakarta pour toutes ses dépendances. De ce fait toutes les dépendendences javax.* sont à modifier en jakarta.*
+
+## Spring Security 6
+
+- WebSecurityConfigurerAdapter supprimé
+- .authorizeRequests() - deprecated -> authorizeHttpRequests
+- antMatchers, mvcMatchers, regexMatchers - deprecated -> requestMatchers
