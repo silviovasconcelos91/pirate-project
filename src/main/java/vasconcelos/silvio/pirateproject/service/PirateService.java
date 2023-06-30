@@ -23,8 +23,7 @@ public class PirateService {
     private PirateRepository pirateRepository;
 
     public List<Pirate> getAllPirates() {
-        Iterable<Pirate> allPirates = pirateRepository.findAll();
-        return StreamSupport.stream(allPirates.spliterator(), false).collect(Collectors.toList());
+        return pirateRepository.findAll();
     }
 
     public PirateWithBounty getPirateWithBounty(String pirateName) {

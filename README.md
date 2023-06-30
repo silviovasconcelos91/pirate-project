@@ -19,3 +19,7 @@ Spring a décidé de migrer de javax à jakarta pour toutes ses dépendances. De
 - WebSecurityConfigurerAdapter supprimé
 - .authorizeRequests() - deprecated -> authorizeHttpRequests
 - antMatchers, mvcMatchers, regexMatchers - deprecated -> requestMatchers
+
+## Spring data
+- ListCrudRepository
+- PagingAndSortingRepository n'extends plus CrudRepository
