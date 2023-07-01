@@ -48,3 +48,14 @@ Pour mon exemple, j'ai utilisé Zipkin pour récupérer les métrics et pouvoir 
 ## ProblemDetail pour les Api Http
 
 Spring  arrive avec ProblemDetail qui permet de standardiser la gestion des erreurs http.
+
+## GraalVm
+
+La grosse nouveauté avec Spring Boot 3 est le support de GraalVm et de la compilation native. Ce qui permet de générer des exécutables natifs ou des images docker. 
+
+- [Documentation GraalVm Spring](https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/native-image.html#native-image)
+
+Voici les commandes pour générer des exécutables ou des images docker :
+
+- `mvn -Pnative native:compile`
+- `mvn -Pnative spring-boot:build-image`
