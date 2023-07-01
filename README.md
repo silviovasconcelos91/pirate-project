@@ -43,3 +43,8 @@ Si vous voulez en savoir plus sur le sujet :
  - [Observability for JDBC](https://jdbc-observations.github.io/datasource-micrometer/docs/current/docs/html/)
 
 Pour mon exemple, j'ai utilisé Zipkin pour récupérer les métrics et pouvoir les afficher.
+
+
+## ProblemDetail pour les Api Http
+
+Spring  arrive avec ProblemDetail qui permet de standardiser la gestion des erreurs http.
