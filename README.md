@@ -33,3 +33,13 @@ Nous pouvons maintenant définir des interfaces avec des méthodes annotées pou
 
 [Documentation Spring](https://docs.spring.io/spring-framework/docs/6.0.0-RC2/reference/html/integration.html#rest-http-interface)
 
+## Observability
+
+Spring boot 3 utilise une api unique pour le monitoring : micrometer. 
+
+Si vous voulez en savoir plus sur le sujet :
+ - [Observability Reference Documentation](https://docs.spring.io/spring-boot/docs/3.0.0/reference/html/actuator.html#actuator.observability)
+ - [Observability with Spring Boot 3](https://spring.io/blog/2022/10/12/observability-with-spring-boot-3)
+ - [Observability for JDBC](https://jdbc-observations.github.io/datasource-micrometer/docs/current/docs/html/)
+
+Pour mon exemple, j'ai utilisé Zipkin pour récupérer les métrics et pouvoir les afficher.
