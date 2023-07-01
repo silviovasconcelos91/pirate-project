@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres:15.2-alpine
+    environment:
+      POSTGRES_USER: kaibee
+      POSTGRES_PASSWORD: kaibee
+      PGDATA: kaibee
+    ports:
+      - "5432:5432"
+
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - 9411:9411
