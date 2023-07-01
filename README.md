@@ -21,5 +21,15 @@ Spring a décidé de migrer de javax à jakarta pour toutes ses dépendances. De
 - antMatchers, mvcMatchers, regexMatchers - deprecated -> requestMatchers
 
 ## Spring data
+
 - ListCrudRepository
 - PagingAndSortingRepository n'extends plus CrudRepository
+
+## Http Interface
+
+Avec Spring 6, Spring préconise de remplacer RestTemplate par WebClient de webflux. En effet RestTemplate même si non deprecated ne sera maintenu que pour le strict nécesaire.
+
+Nous pouvons maintenant définir des interfaces avec des méthodes annotées pour l'exchange Http et créé un Proxy qui implémente cette interface et effectue les echanges HTTP.
+
+[Documentation Spring](https://docs.spring.io/spring-framework/docs/6.0.0-RC2/reference/html/integration.html#rest-http-interface)
+
